@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import useAppNavigation from '../hooks/useAppNavigation';
 
-// import { Container } from './styles';
+
 
 const Splash: React.FC = () => {
   const navigation = useAppNavigation()
@@ -18,9 +18,34 @@ const Splash: React.FC = () => {
     }), 3000)
   }, [])
 
-  return <SafeAreaView style={[StyleSheet.absoluteFill, { justifyContent: "center", alignItems: "center" }]}>
-    <Text>Splash</Text>
+  return <SafeAreaView style={[StyleSheet.absoluteFill, styles.container]}>
+
+    <Image
+      source={{ uri: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png' }}
+      style={styles.logo}
+    />
   </SafeAreaView>
 }
+
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: '#3498db',
+  },
+  logo: {
+    width: 100,
+    height: 100,
+    marginBottom: 20,
+
+    resizeMode: 'contain',
+  },
+  text: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
+});
+
 
 export default Splash;
